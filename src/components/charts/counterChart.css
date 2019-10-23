@@ -1,0 +1,21 @@
+.counter-layout {
+    height: 100%;
+}
+
+.chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    background: var(--light-bg-color);
+}
+
+.chart-label {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.dashlet-counter {
+    height: 100px;
+}

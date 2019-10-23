@@ -1,0 +1,134 @@
+* {
+    font-family: 'Arial, Helvetica, sans-serif';
+    --primary-bg-color: #263238;
+    --secondary-bg-color: #4f5b62;
+    --dark-bg-color: #000a12;
+    --light-bg-color: #9ea7aa;
+
+}
+
+body {
+    height: 100%;
+    background-color: var(--primary-bg-color)!important;
+}
+
+h1 {
+    color: #27aedb;
+    text-align: center;
+}
+
+.row {
+    margin: 15px;
+}
+
+.header-nav {
+    background-color: var(--secondary-bg-color);
+}
+
+.header-nav  ul {
+    display: flex;
+    width: 100%;
+    justify-content: left;
+
+}
+
+.header-nav ul li {
+    margin: 15px;
+    color: #000000;
+    border: none;
+}
+
+.header-nav ul li a .ant-btn {
+    color: #000000;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.header-nav ul li.active a .ant-btn{
+    color: #27aedb;
+}
+
+.layout {
+    position: relative;
+    width: 100%;
+    background: var(--secondary-bg-color);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 25px;
+}
+
+.dashlet-layout {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.dashlet {
+    background: var(--light-bg-color);
+    padding: 25px;
+    border-radius: 5px;
+}
+
+.dashlet-pie {
+    padding: 15px;
+    width: 250px;
+    height: 250px;
+}
+
+.serverlist-title {
+    padding: 5px 15px;
+    background: var(--light-bg-color);
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.fade-enter {
+    opacity: 0.01;
+}
+
+.fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 100ms ease-in;
+}
+
+.fade-exit {
+    opacity: 0;
+}
+  
+.fade-exit.fade-exit-active {
+    opacity: 0.01;
+    transition: opacity 100ms ease-in;
+}
+
+div.transition-group {
+    position: relative;
+}
+
+.title {
+    margin-bottom: 5px;
+    padding: 5px 15px;
+}
+
+#pie {
+    height: 100%;
+    width: 100%;
+}
+
+.ucs-input {
+    display: block;
+    width: 200px;
+    margin: 15px 0;
+    border-radius: 5px;
+}
+
+.ant-btn.ant-btn-link {
+    color: #000000;
+}
+
+.btn-signout {
+    position: absolute;
+    right: 0;
+}

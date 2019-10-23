@@ -1,0 +1,53 @@
+.modal-background {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 555;
+    opacity: 0;
+    transition: opacity, 0.3s;
+}
+
+.modal-background:after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.modal-container {
+    z-index: 560;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform:translate(-50%, -50%);
+    width: 50%;
+    max-width: 600px;
+    min-height: 300px;
+    padding: 25px;
+    border-radius: 2px;
+    background-color: var(--light-bg-color);
+}
+
+.close-icon {
+    position: absolute;
+    right: 25px;
+    top: 20px;
+    cursor: pointer;
+}
+
+.hidden {
+    opacity: 0;
+    transition: opacity, 0.3s;
+}
+
+.visible {
+    opacity: 1;
+    transition: opacity, 0.3s;
+}

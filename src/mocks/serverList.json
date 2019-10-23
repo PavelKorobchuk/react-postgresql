@@ -1,0 +1,234 @@
+{
+    "Results": [
+        {
+            "id": 1,
+            "name": "server_1",
+            "type": "simple-device",
+            "clusterId": "",
+            "date": "01/30/2019",
+            "health": "Healthy",
+            "alarms": [],
+            "adminState": "Connected"
+        },
+        {
+            "id": 2,
+            "name": "server_2",
+            "type": "simple-device",
+            "clusterId": 312,
+            "date": "01/29/2019",
+            "health": "Healthy",
+            "alarms": [],
+            "adminState": "Validating"
+        },
+        {
+            "id": 3,
+            "name": "server_3",
+            "type": "simple-device",
+            "clusterId": "",
+            "date": "01/30/2019",
+            "health": "Critical",
+            "alarms": [],
+            "adminState": "Connected"
+        },
+        {
+            "id": 4,
+            "name": "server_4",
+            "type": "simple-device",
+            "clusterId": "",
+            "date": "01/30/2019",
+            "health": "Healthy",
+            "alarms": [],
+            "adminState": "Connected"
+        },
+        {
+            "id": 5,
+            "name": "server_5",
+            "type": "simple-device",
+            "clusterId": "",
+            "date": "01/15/2019",
+            "health": "Warning",
+            "alarms": [],
+            "adminState": "Disabled"
+        },
+        {
+            "id": 6,
+            "name": "server_6",
+            "type": "simple-device",
+            "clusterId": 12,
+            "date": "01/30/2019",
+            "health": "Critical",
+            "alarms": [],
+            "adminState": "Connected"
+        },
+        {
+            "id": 7,
+            "name": "server_7",
+            "type": "simple-device",
+            "clusterId": "",
+            "date": "01/30/2019",
+            "health": "Healthy",
+            "alarms": [],
+            "adminState": "Connected"
+        },
+        {
+            "id": 8,
+            "name": "server_8",
+            "type": "simple-device",
+            "clusterId": "",
+            "date": "01/01/2019",
+            "health": "Critical",
+            "alarms": [],
+            "adminState": "Disabled"
+        },
+        {
+            "id": 9,
+            "name": "server_9",
+            "type": "simple-device",
+            "clusterId": "",
+            "date": "01/10/2019",
+            "health": "Healthy",
+            "alarms": [],
+            "adminState": "Connected"
+        },
+        {
+            "id": 10,
+            "name": "server_10",
+            "type": "simple-device",
+            "clusterId": "",
+            "date": "01/23/2019",
+            "health": "Healthy",
+            "alarms": [],
+            "adminState": "Connected"
+        },
+        {
+            "id": 101,
+            "name": "server_10",
+            "type": "simple-device",
+            "clusterId": "",
+            "date": "01/23/2019",
+            "health": "Healthy",
+            "alarms": [],
+            "adminState": "Connected"
+        },
+        {
+            "id": 102,
+            "name": "server_10",
+            "type": "simple-device",
+            "clusterId": "",
+            "date": "01/23/2019",
+            "health": "Healthy",
+            "alarms": [],
+            "adminState": "Connected"
+        },
+        {
+            "id": 111,
+            "name": "server_10",
+            "type": "simple-device",
+            "clusterId": "",
+            "date": "01/23/2019",
+            "health": "Healthy",
+            "alarms": [],
+            "adminState": "Connected"
+        },
+        {
+            "id": 70,
+            "name": "server_10",
+            "type": "simple-device",
+            "clusterId": "",
+            "date": "01/23/2019",
+            "health": "Healthy",
+            "alarms": [],
+            "adminState": "Connected"
+        },
+        {
+            "id": 199,
+            "name": "server_10",
+            "type": "simple-device",
+            "clusterId": "",
+            "date": "01/23/2019",
+            "health": "Healthy",
+            "alarms": [],
+            "adminState": "Connected"
+        },
+        {
+            "id": 1011,
+            "name": "server_10",
+            "type": "simple-device",
+            "clusterId": "",
+            "date": "01/23/2019",
+            "health": "Healthy",
+            "alarms": [],
+            "adminState": "Connected"
+        },
+        {
+            "id": 104356,
+            "name": "server_10",
+            "type": "simple-device",
+            "clusterId": "",
+            "date": "01/23/2019",
+            "health": "Healthy",
+            "alarms": [],
+            "adminState": "Connected"
+        },
+        {
+            "id": 10435,
+            "name": "server_10",
+            "type": "simple-device",
+            "clusterId": "",
+            "date": "01/23/2019",
+            "health": "Healthy",
+            "alarms": [],
+            "adminState": "Connected"
+        },
+        {
+            "id": 1011221,
+            "name": "server_10",
+            "type": "simple-device",
+            "clusterId": "",
+            "date": "01/23/2019",
+            "health": "Healthy",
+            "alarms": [],
+            "adminState": "Connected"
+        },
+        {
+            "id": 1009,
+            "name": "server_10",
+            "type": "simple-device",
+            "clusterId": "",
+            "date": "01/23/2019",
+            "health": "Healthy",
+            "alarms": [],
+            "adminState": "Connected"
+        },
+        {
+            "id": 87,
+            "name": "server_10",
+            "type": "simple-device",
+            "clusterId": "",
+            "date": "01/23/2019",
+            "health": "Healthy",
+            "alarms": [],
+            "adminState": "Connected"
+        },
+        {
+            "id": 176,
+            "name": "server_10",
+            "type": "simple-device",
+            "clusterId": "",
+            "date": "01/23/2019",
+            "health": "Healthy",
+            "alarms": [],
+            "adminState": "Connected"
+        },
+        {
+            "id": 66,
+            "name": "server_10",
+            "type": "simple-device",
+            "clusterId": "",
+            "date": "01/23/2019",
+            "health": "Healthy",
+            "alarms": [],
+            "adminState": "Connected"
+        }
+    ]
+}
