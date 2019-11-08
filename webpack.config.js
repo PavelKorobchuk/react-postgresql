@@ -10,10 +10,10 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    host: '172.23.80.51',
-    port: 8080,
+    host: '172.23.80.51', 
+    port: 3080,
     proxy: {
-      '/api': 'http://172.23.80.51:5000'
+      '/auth': 'http://localhost:5000'
     }
   },
   module: {
@@ -24,17 +24,27 @@ module.exports = {
         use: ["babel-loader"]
       },
       {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+      {
         test: /\.css$/,
         use: ["style-loader", "css-loader"]
-      }
+      },
+      {
+        enforce: "pre",
+        test: /\.js$/,
+        loader: "source-map-loader"
+    }
     ]
+  },
+  resolve: {
+    extensions: [ '.tsx', '.ts', '.js' ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/index.html"
     })
   ],
-  node: {
-    fs: 'empty'
-  }
 };

@@ -19,6 +19,13 @@ export default function LoginPage(props) {
             disableBtn: true,
             redirectToPreviousRoute: true
         });
+
+        fetch('/auth/login', {
+            method: 'POST',
+            body: data
+        }).then(r => {
+            console.log(r.statusText);
+        }).catch(err => {throw err});
     }
 
     return (

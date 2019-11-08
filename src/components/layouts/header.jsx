@@ -6,6 +6,7 @@ import {socket} from '../App.jsx';
 const Header = withRouter((props) => {
     const navMap = [
         {path: '/location', label: 'Servers Location'},
+        {path: '/dashboard', label: 'Dashboard'},
     ];
     const isLoggedIn = props.isLoggedIn();
     const onSignOutHandler = () => {

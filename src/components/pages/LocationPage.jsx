@@ -1,8 +1,10 @@
 import React, {useState, useEffect, useRef, Fragment} from 'react';
 import UcsTable from '../common/ucs-table.jsx';
 import { Link } from "react-router-dom";
+import {connect} from 'react-redux';
 import './LocationPage.css';
 import {socket} from '../App.jsx';
+import {getLocationsMiddleware} from '../../actions/index.jsx';
 
 const mockColumns = [
     {
@@ -44,22 +46,16 @@ const drawServerMap = (mapRef, data) => {
     }).addTo(map);
 }
 
-export default function LocationPage(props) {
+function LocationPage(props) {
     const mapRef = useRef();
-    const [state, setState] = useState({
-        tableData: []
-    });
 
     useEffect(() => {
+        
         socket.emit("initial_locations");
         socket.on("get_locations", res => {
             const cities = (res || []);
-
             drawServerMap(mapRef, cities);
-            setState({
-                ...state,
-                tableData: cities,
-            });
+            props.dispatchGetLocations(cities);
         });
         socket.on("change_locations", () => {
             socket.emit("initial_locations");
@@ -76,11 +72,11 @@ export default function LocationPage(props) {
             <div>
                 <div className="title">Server Locations</div>
                 <div id="mapid" ref={mapRef}></div>
-                {state.tableData && state.tableData.length ? (
+                {props.locations && props.locations.length ? (
                     <div className="table-layout">
                         <UcsTable
                             id="tableId"
-                            data={state.tableData}
+                            data={props.locations}
                             columns={mockColumns}
                             selectAll={true}
                             selectable={true}
@@ -90,4 +86,18 @@ export default function LocationPage(props) {
                 ) : null}
             </div>
     )
-}
+};
+
+const mapStateToProps = (state) => {
+    return {
+        locations: state.serverReducer.locations
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        dispatchGetLocations: (payload) => dispatch({ type: 'GET_LOCATIONS', payload })
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LocationPage);

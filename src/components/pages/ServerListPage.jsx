@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import UcsTable from '../common/ucs-table.jsx';
 import UcsModal from '../common/ucs-modal.jsx';
 import { Link } from "react-router-dom";
+import {connect} from 'react-redux';
 import Pie from '../charts/pieChart.jsx';
 import CounterChart from '../charts/counterChart.jsx'
 import {Button} from 'antd';
@@ -26,7 +27,6 @@ const mockColumns = [
     }
 ];
 
-const appRoot = document.getElementById("root");
 const addServerRequest = (serverName, props, cb) => {
     const data = JSON.stringify({
         city_id: props.match.params.id,
@@ -47,25 +47,25 @@ const generateDashletData = (servers, path) => {
     }));
 };
 
-export default function ServerListPage(props) {
+function ServerListPage(props) {
+    const {currentLocation, serverList = []} = props;
+    const appRoot = document.getElementById("root");
     const moId = props.match.params.id;
-    const [tableData, setTableData] = useState([]);
     const [formState, setFormState] = useState({
         isValid: false,
         serverName: ''
     });
     const [modalState, setModalState] = useState({
-        show: false
+        show: false,
+        savedFocusedEl: null
     });
-    const [location, setLocation] = useState(null);
 
     useEffect(() => {
         socket.emit("initial_server_data", moId);
         socket.on("get_server_data", res => {
             const servers = (res || []);
-
-            setTableData(servers[0]);
-            setLocation(servers[1][0].name);
+            props.dispatchSetServers(servers[0]);
+            props.dispatchSetCurrentLocation(servers[1][0].name);
         });
         socket.on("change_server_data", () => {
             socket.emit("initial_server_data", moId);
@@ -78,8 +78,12 @@ export default function ServerListPage(props) {
         }
     }, []);
 
-    const showHideModal = (type) => {
-        setModalState(() => ({ show: type === 'show'}));
+    const showHideModal = (type, e) => {
+        const focusEL = (e && e.target) || modalState.savedFocusedEl;
+        setModalState(() => ({
+            show: type === 'show',
+            savedFocusedEl: focusEL
+        }));
     }
 
     const isInputValid = (value) => value && !value.match(/\s/g);
@@ -124,18 +128,18 @@ export default function ServerListPage(props) {
     }
     return (
             <div className="server-list-table">
-                <div className="serverlist-title">{`Location: ${location}`}</div>
+                <div className="serverlist-title">{`Location: ${currentLocation}`}</div>
                 <div className="dashlet-layout">
                     <div className="dashlet dashlet-pie">
                         <Pie
-                            data={generateDashletData(tableData, 'health')}
+                            data={generateDashletData(serverList, 'health')}
                             width="200"
                             height="200"
                             innerRadius={60}
                             outerRadius={100}
                         />
                     </div>
-                    {generateDashletData(tableData, 'admin_state').map(item => {
+                    {generateDashletData(serverList, 'admin_state').map(item => {
                         return (
                             <div key={item.label} className="dashlet dashlet-counter">
                                 <CounterChart data={item} />
@@ -143,10 +147,10 @@ export default function ServerListPage(props) {
                         )
                     })}
                 </div>
-                <Button type="primary" className="primary-btn" onClick={() => showHideModal('show')}>Add Server</Button>
+                <Button type="primary" className="primary-btn" onClick={(e) => showHideModal('show', e)}>Add Server</Button>
                 <UcsTable
                     id="tableId"
-                    data={tableData}
+                    data={serverList}
                     columns={mockColumns}
                     selectAll={true}
                     selectable={true}
@@ -154,6 +158,7 @@ export default function ServerListPage(props) {
                 />
                 {modalState.show ? (
                     <UcsModal
+                        savedFocusedEl={modalState.savedFocusedEl}
                         domNode={appRoot}
                         onClose={() => showHideModal('hide')}
                         title={"Modal title"}
@@ -164,4 +169,21 @@ export default function ServerListPage(props) {
                 ) : null}
             </div>
     )
-}
+};
+
+const mapStateToProps = (state) => {
+    return {
+        serverList: state.serverReducer.serverList,
+        currentLocation: state.serverReducer.currentLocation
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        dispatchAddServer: (payload) => dispatch({ type: 'ADD_NEW_SERVER', payload }),
+        dispatchSetServers: (payload) => dispatch({ type: 'GET_SERVER_LIST', payload }),
+        dispatchSetCurrentLocation: (payload) => dispatch({ type: 'GET_CURRENT_LOCATION', payload })
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ServerListPage)

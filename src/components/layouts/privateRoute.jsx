@@ -8,6 +8,7 @@ import {
 import LocationPage from '../pages/LocationPage.jsx';
 import ServerListPage from '../pages/ServerListPage.jsx';
 import ServerDetails from '../pages/ServerDetails.jsx';
+import Dashboard from '../pages/Dashboard.tsx';
 
 export default function PrivateRoute(props) {
     const isLoggedIn = props.isLoggedIn();
@@ -16,11 +17,12 @@ export default function PrivateRoute(props) {
             {isLoggedIn ? (
                 <Fragment>
                     <Switch>
-                    <Route exact path="/location" component={LocationPage} />
-                    <Route exact path="/list" component={ServerListPage} />
-                    <Route path="/list/:id" component={ServerListPage} />
-                    <Route path="/details/:id" component={ServerDetails} />
-                    <Redirect from='/' to="/location" />
+                        <Route exact path="/dashboard" component={Dashboard} />
+                        <Route exact path="/location" component={LocationPage} />
+                        <Route exact path="/list" component={ServerListPage} />
+                        <Route path="/list/:id" component={ServerListPage} />
+                        <Route path="/details/:id" component={ServerDetails} />
+                        <Redirect from='/' to="/location" />
                     </Switch>
                 </Fragment>
             ) : <Redirect to="/login"/>}

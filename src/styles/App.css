@@ -54,7 +54,7 @@ h1 {
     position: relative;
     width: 100%;
     background: var(--secondary-bg-color);
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 25px;
 }
@@ -131,4 +131,14 @@ div.transition-group {
 .btn-signout {
     position: absolute;
     right: 0;
+}
+
+.dashboard-container {
+    position: relative;
+    vertical-align: top;
+    /* text-align: center; */
+}
+
+.dashboard-tabs {
+    padding: 15px;
 }
